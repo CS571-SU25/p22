@@ -1,4 +1,4 @@
-import { Row, Container, Col } from "react-bootstrap"
+import { Row, Container, Col, Spinner } from "react-bootstrap"
 import ActivityCard from "./ActivityCard";
 import { useEffect, useState } from "react";
 
@@ -29,7 +29,7 @@ export default function ActivityMenu() {
     return <Container>
         <Row fluid>
             {
-                activityData.length === 0 ? <p>Nothing here...</p> :
+                activityData.length === 0 ? <Spinner size="lg" variant="primary"/> :
                 handleActivityMap()
             }
         </Row>
