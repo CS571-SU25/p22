@@ -9,7 +9,8 @@ export default function ActivityCard({name, img, desc, delay}) {
         setTimeout(() => setShow(true), delay)
     }, [])
 
-    return <Card className={`activity-card ${show ? "show" : ""}`} style={{minWidth: "300px", position: "relative"}} onClick={() => {location.href = `/p22/${name}`}}>
+    return <div style={{padding: "10px"}}>
+        <Card className={`activity-card ${show ? "show" : ""}`} style={{width: "300px", position: "relative"}} onClick={() => {location.href = `/p22/${name}`}}>
             <div style={{backgroundImage: `url(${img.src})`}}>
                 <h2>{name}</h2>
             </div>
@@ -17,4 +18,6 @@ export default function ActivityCard({name, img, desc, delay}) {
                 {desc}
             </p>
         </Card>
+    </div>
+        
 }
