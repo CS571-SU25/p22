@@ -9,7 +9,7 @@ export default function ActivityMenu() {
         let count = 1;
         let interval = 100;
         return activityData.map((data) => (
-            <Col key={data.name} sm={12} md={6} lg={4}>
+            <Col key={data.name} sm={12} md={6} lg={4} style={{padding: "10px"}}>
                 <ActivityCard {...data} delay={(count++)*interval}/>
             </Col>
             
@@ -27,7 +27,7 @@ export default function ActivityMenu() {
     }, [])
 
     return <Container>
-        <Row>
+        <Row fluid>
             {
                 activityData.length === 0 ? <p>Nothing here...</p> :
                 handleActivityMap()
