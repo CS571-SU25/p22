@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <ActivityCard name={"Test"} img={{src: chili}} desc={"Description"} delay={100}/>
+      <ActivityCard name={"Chili"} img={{src: chili}} desc={"A delicious bowl of chili"} delay={100}/>
     </>
   )
 }

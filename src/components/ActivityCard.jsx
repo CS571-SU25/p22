@@ -1,4 +1,4 @@
-import { Card, Fade } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import "./ActivityCard.css"
 import { useEffect, useState } from "react";
 
