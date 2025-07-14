@@ -1,6 +1,6 @@
 [
     {
-        "name": "Test1",
+        "name": "Test One",
         "img": {
             "src": "/p22/test1.png",
             "alt": "Alt text"
@@ -9,7 +9,7 @@
         "keywords": []
     },
     {
-        "name": "Test2",
+        "name": "Test Two",
         "img": {
             "src": "/p22/test2.png",
             "alt": "Alt text"
@@ -18,7 +18,7 @@
         "keywords": []
     },
     {
-        "name": "Test3",
+        "name": "Test Three",
         "img": {
             "src": "/p22/test3.png",
             "alt": "Alt text"
@@ -27,7 +27,7 @@
         "keywords": []
     },
     {
-        "name": "Test4",
+        "name": "Test Four",
         "img": {
             "src": "/p22/test4.png",
             "alt": "Alt text"
