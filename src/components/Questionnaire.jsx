@@ -1,10 +1,14 @@
 import { Row, Container, Col, Spinner, Button } from "react-bootstrap"
 import { useEffect, useState } from "react";
 import Summary from "./Summary";
+import { useNavigate } from "react-router";
+import Recommendation from "./Recommendation";
 
 export default function Questionnaire() {
     const [step, setStep] = useState(0);
     const [responses, setResponses] = useState([]);
+
+    let seeRecs = false;
   
     const handleAnswer = (question, answer) => {
       setResponses([...responses, { question, answer }]);
@@ -70,6 +74,15 @@ export default function Questionnaire() {
     };
   
     const questionData = currentQuestion();
+
+    const navigate = useNavigate();
+
+    const getRecommendations = () => {
+      
+      
+      seeRecs = true;
+      navigate("/recommendation")
+    }
   
     return (
       <Container>
@@ -86,7 +99,11 @@ export default function Questionnaire() {
             </div>
           </div>
         ) : (
-          <Summary responses={responses} />
+          <div>
+            <Summary responses={responses} />
+            <Recommendation responses={responses} /> {/*try to figure out how to make visible with a button */}
+          </div>
+          
         )}
       </Container>
     );
