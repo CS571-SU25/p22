@@ -1,3 +1,5 @@
+const IPKEY = "a858d786813e46279445d41f5aad29d2";
+
 export default async function fetchLocation() {
     if (!navigator.geolocation) {
         console.log("Geolocation not supported");
@@ -22,11 +24,11 @@ export default async function fetchLocation() {
             const ip = await res.text();
             console.log(ip);
 
-            const locRes = await fetch(`http://ip-api.com/json/${ip}`);
+            const locRes = await fetch(`https://api.ipgeolocation.io/v2/ipgeo?apiKey=${IPKEY}&ip=${ip}`);
             const data = await locRes.json();
-            console.log(data.lat, data.lon);
+            console.log(data.location.latitude, data.location.longitude);
 
-            return { lat: data.lat, long: data.lon };
+            return { lat: data.location.latitude, long: data.location.longitude };
         } catch (fallbackErr) {
             console.error("Failed to fetch IP-based location:", fallbackErr);
             return null;
