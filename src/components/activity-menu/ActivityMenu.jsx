@@ -7,7 +7,7 @@ export default function ActivityMenu() {
 
     const handleActivityMap = () => {
         let count = 1;
-        // Interval between each card appearance
+        // Interval between each card appearance (ms)
         const interval = 100;
         return activityData.map((data) => (
             <Col key={data.name} sm={12} md={6} lg={4} style={{padding: "10px"}}>

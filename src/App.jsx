@@ -6,6 +6,7 @@ import Recommendation from './components/questionnaire/Recommendation'
 import SavedActivities from './components/saved-activities/SavedActivities'
 import HomePage from './components/home/HomePage'
 import Layout from './structural/Layout'
+import PageDNE from './components/page-not-found/PageDNE'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="questionnaire" element={<Questionnaire />} />
           <Route path="recommendation" element={<Recommendation />} />
           <Route path="saved" element={<SavedActivities />} /> 
+          <Route path='*' element={<PageDNE />}/>
         </Route>
       </Routes>
     </HashRouter>
