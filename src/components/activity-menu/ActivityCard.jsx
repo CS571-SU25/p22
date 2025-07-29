@@ -12,7 +12,7 @@ export default function ActivityCard({name, img, desc, delay}) {
     }, [])
 
     // TODO: Change onClick to a useNavigate function
-    return <Card className={`activity-card ${show ? "show" : ""}`} style={{width: "300px", position: "relative"}} onClick={() => nav(`/${name}`)}>
+    return <Card className={`activity-card ${show ? "show" : ""}`} style={{width: "300px", position: "relative"}} onClick={() => nav(`/#/${name}`)}>
             <div style={{backgroundImage: `url(${img.src})`}}>
                 <h2>{name}</h2>
             </div>
