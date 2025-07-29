@@ -7,9 +7,21 @@ import SavedActivities from './components/saved-activities/SavedActivities'
 import HomePage from './components/home/HomePage'
 import Layout from './structural/Layout'
 import PageDNE from './components/page-not-found/PageDNE'
+import Activity from './components/activity-page/Activity'
+import { useEffect, useState } from 'react'
 
 function App() {
+  const [activityData, setActivityData] = useState([]);
 
+  useEffect(() => {
+    const getData = async () => {
+      const res = await fetch("/p22/activities/activityData.json");
+      const data = await res.json();
+      setActivityData(data);
+    }
+    getData();
+  }, [])
+    
   return (
     <HashRouter>
       <Routes>
@@ -19,6 +31,9 @@ function App() {
           <Route path="questionnaire" element={<Questionnaire />} />
           <Route path="recommendation" element={<Recommendation />} />
           <Route path="saved" element={<SavedActivities />} /> 
+          {
+            activityData.map(activity => <Route path={activity.name} element={<Activity {...activity}/>}/>)
+          }
           <Route path='*' element={<PageDNE />}/>
         </Route>
       </Routes>

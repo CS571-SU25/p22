@@ -3,7 +3,7 @@ import "./ActivityCard.css"
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
-export default function ActivityCard({name, img, desc, delay}) {
+export default function ActivityCard({ name, img, desc, delay }) {
     const [show, setShow] = useState(false);
     const nav = useNavigate();
 
@@ -11,9 +11,8 @@ export default function ActivityCard({name, img, desc, delay}) {
         setTimeout(() => setShow(true), delay)
     }, [])
 
-    // TODO: Change onClick to a useNavigate function
     return <Card className={`activity-card ${show ? "show" : ""}`} style={{width: "300px", position: "relative"}} onClick={() => nav(`/${name}`)}>
-            <div style={{backgroundImage: `url(${img.src})`}}>
+            <div style={{backgroundImage: `url(/p22/activities/activityImages/${img.src})`}}>
                 <h2>{name}</h2>
             </div>
             <p style={{margin:"auto", padding: "20px"}}>

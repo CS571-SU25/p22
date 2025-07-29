@@ -18,7 +18,7 @@ export default function ActivityMenu() {
 
     useEffect(() => {
         const getData = async () => {
-            const res = await fetch("/p22/activityData.json");
+            const res = await fetch("/p22/activities/activityData.json");
             const data = await res.json();
             console.log(data);
             setActivityData(data);
@@ -26,6 +26,7 @@ export default function ActivityMenu() {
         getData();
     }, [])
 
+    // TODO: Make UI look a little cleaner (e.g. border, background, margin)
     return <Container>
         <Row fluid>
             {
