@@ -9,9 +9,11 @@ import Layout from './structural/Layout'
 import PageDNE from './components/page-not-found/PageDNE'
 import Activity from './components/activity-page/Activity'
 import { useEffect, useState } from 'react'
+import fetchWeather from './tools/fetchWeather'
 
 function App() {
   const [activityData, setActivityData] = useState([]);
+  const [weatherData, setWeatherData] = useState({});
 
   useEffect(() => {
     const getData = async () => {
@@ -19,14 +21,21 @@ function App() {
       const data = await res.json();
       setActivityData(data);
     }
+
+    const getWeather = async () => {
+      const weather = await fetchWeather();
+      setWeatherData(weather.current);
+    }
+
     getData();
+    getWeather();
   }, [])
     
   return (
     <HashRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<HomePage />} />
+          <Route index element={<HomePage weather={weatherData}/>} />
           <Route path="activity-menu" element={<ActivityMenu />} />
           <Route path="questionnaire" element={<Questionnaire />} />
           <Route path="recommendation" element={<Recommendation />} />
