@@ -1,19 +1,36 @@
 import { Row, Container, Col, Spinner } from "react-bootstrap"
 import ActivityCard from "./ActivityCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import SavedActivitiesContext from "../../contexts/SavedActivitiesContext";
 
 export default function ActivityMenu() {
     const [activityData, setActivityData] = useState([]);
+    const [savedActivities, setSavedActivities] = useContext(SavedActivitiesContext);
 
     const handleActivityMap = () => {
         let count = 1;
         // Interval between each card appearance (ms)
         const interval = 100;
         return activityData.map((data) => (
-            <Col key={data.name} sm={12} md={6} lg={4} style={{padding: "10px"}}>
-                <ActivityCard {...data} delay={(count++)*interval}/>
+            <Col key={data.name} sm={12} md={6} lg="auto" style={{padding: "10px"}} className="d-flex justify-content-center">
+                <ActivityCard {...data} 
+                    delay={(count++)*interval}
+                    saveActivity={saveActivity} 
+                    unsaveActivity={unsaveActivity} 
+                    isSaved={savedActivities.some(act => act.name === data.name)}
+                />
             </Col>
         ))
+    }
+
+    const saveActivity = (name) => {
+        setSavedActivities(prev => 
+            [...prev, activityData.filter(activ => activ.name === name)[0]]
+        );
+    }
+
+    const unsaveActivity = (name) => {
+        setSavedActivities(prev => prev.filter(activ => activ.name !== name));
     }
 
     useEffect(() => {
@@ -27,8 +44,8 @@ export default function ActivityMenu() {
     }, [])
 
     // TODO: Make UI look a little cleaner (e.g. border, background, margin)
-    return <Container>
-        <Row fluid>
+    return <Container fluid className="mt-4 px-4">
+        <Row className="d-flex justify-content-center">
             {
                 activityData.length === 0 ? <Spinner size="lg" variant="primary"/> :
                 handleActivityMap()

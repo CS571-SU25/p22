@@ -1,5 +1,5 @@
 const weatherLookup = {
-    20: "Lightly Cloudy",
+    20: "Sunny",
     30: "Cloudy",
     40: "Snow",
     50: "Foggy",
@@ -22,6 +22,12 @@ export default function CurrentWeather({ weather }) {
         <div>
             <h2>Current Weather:</h2>
             <p>{getWeatherType()}</p>
+            <p>Temperature: {weather.temperature_2m}&deg;F</p>
+            {
+                weather.precipitation ? <p>Precipitation: {weather.precipitation}</p> : "" 
+            }
+            <p>UV: {weather.uv_index}</p>
+            <p>Wind: {weather.wind_speed_10m} mph</p>
         </div>
     )
 }
