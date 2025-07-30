@@ -34,5 +34,32 @@
         },
         "desc": "This is test 4",
         "keywords": []
+    }, 
+    {
+        "name": "Play a board game",
+        "img": {
+            "src": "games.jpg",
+            "alt": "Picture of some games"
+        },
+        "desc": "You could do a board game or a puzzle if you want to stay indoors! You can do this alone or with others",
+        "keywords": ["inside", "alone", "friends"] 
+    },
+    {
+        "name": "Bake some cookies",
+        "img": {
+            "src": "baking.jpg",
+            "alt": "Picture of some freshly baked cookies"
+        },
+        "desc": "You could can bake some cookies inside! You might want to do this one alone so you can eat all the cookies!",
+        "keywords": ["inside", "alone"] 
+    },
+    {
+        "name": "Go for a hike",
+        "img": {
+            "src": "hiking.jpg",
+            "alt": "Picture of a hiking trail"
+        },
+        "desc": "Enjoy some exercise outdoors with some friends or by yourself! You can do this rain or shine, but remember a rain jacket if the weather looks bad!",
+        "keywords": ["outside", "raining", "not raining"] 
     }
 ]
