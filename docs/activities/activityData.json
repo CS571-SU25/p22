@@ -1,38 +1,38 @@
 [
     {
-        "name": "Cook Something",
+        "name": "Test One",
         "img": {
             "src": "test1.png",
-            "alt": "Picture of chili"
+            "alt": "Alt text"
         },
-        "desc": "You can cook (or bake) something inside! You don't want to do with friends cause they might get in the way...",
-        "keywords": ["inside", "alone"]
+        "desc": "This is test 1",
+        "keywords": []
     },
     {
-        "name": "Have a bonfire",
+        "name": "Test Two",
         "img": {
             "src": "test2.png",
-            "alt": "Picture of a bonfire"
+            "alt": "Alt text"
         },
-        "desc": "This is a fun outdoor activity you can do any time of the year! But you can't do this while it's raining...",
-        "keywords": ["outside", "not raining"]
+        "desc": "This is test 2",
+        "keywords": []
     },
     {
-        "name": "Go for a hike",
+        "name": "Test Three",
         "img": {
             "src": "test3.png",
-            "alt": "Picture of a tree outside"
+            "alt": "Alt text"
         },
-        "desc": "This is a great way to get active! You can do this rain or shine, but don't forget a rain jacket if it's raining...",
-        "keywords": ["raining", "outside"]
+        "desc": "This is test 3",
+        "keywords": []
     },
     {
-        "name": "Play board games",
+        "name": "Test Four",
         "img": {
-            "src": "games.jpg",
-            "alt": "Board games"
+            "src": "test4.png",
+            "alt": "Alt text"
         },
-        "desc": "You can have fun playing a board game inside! But you will need at least one other person to play with you...",
-        "keywords": ["inside", "friends"]
+        "desc": "This is test 4",
+        "keywords": []
     }
 ]
