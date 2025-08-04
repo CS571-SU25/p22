@@ -6,7 +6,7 @@ export default function useStorage(storageKey, initialValue) {
     const [data, setData] = useState(savedData ?? initialValue);
     
     useEffect(() => {
-        sessionStorage.setItem(storageKey, JSON.stringify(data));
+        localStorage.setItem(storageKey, JSON.stringify(data));
     }, [data]);
 
     return [data, setData];
