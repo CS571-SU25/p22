@@ -1,39 +1,39 @@
 [
     {
-        "name": "Test One",
+        "name": "Cook something",
         "img": {
             "src": "test1.png",
-            "alt": "Alt text"
+            "alt": "A picture of chili."
         },
-        "desc": "This is test 1",
-        "keywords": []
+        "desc": "You can stay inside and cook something delicious!",
+        "keywords": ["inside"]
     },
     {
-        "name": "Test Two",
+        "name": "Have a bonfire",
         "img": {
             "src": "test2.png",
-            "alt": "Alt text"
+            "alt": "A picture of a bonfire"
         },
-        "desc": "This is test 2",
-        "keywords": []
+        "desc": "You can have a bonfire with some friends outside!",
+        "keywords": ["outside", "friends"]
     },
     {
-        "name": "Test Three",
+        "name": "Have a picnic",
         "img": {
             "src": "test3.png",
-            "alt": "Alt text"
+            "alt": "A picture of a tree."
         },
-        "desc": "This is test 3",
-        "keywords": []
+        "desc": "You can enjoy some food outside with a picnic, sit down under a shady tree and dig in!",
+        "keywords": ["outside", "not raining"]
     },
     {
-        "name": "Test Four",
+        "name": "Go swimming",
         "img": {
             "src": "test4.png",
-            "alt": "Alt text"
+            "alt": "A picture of a body of water"
         },
-        "desc": "This is test 4",
-        "keywords": []
+        "desc": "Cool off outside by jumping into some water and going for a swim!",
+        "keywords": ["outside", "not raining"]
     }, 
     {
         "name": "Play a board game",
