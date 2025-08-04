@@ -3,7 +3,7 @@ import "./Layout.css"
 
 const Layout = () => {
   return (
-    <div>
+    <div style={{minHeight: '100vh', display: 'flex', flexDirection: 'column'}}>
       <div className='navbar-container'>
         <nav className='navbar' style={{justifyContent: "space-around", padding: "0.5rem 2rem", display: "flex"}}>
             <Link to="/" className='link' style={{animationDelay: '0.1s'}}>Home</Link>
@@ -12,7 +12,11 @@ const Layout = () => {
             <Link to="/saved" className='link' style={{animationDelay: '0.4s'}}>My Saved Activities</Link>
         </nav>
       </div>
-      <Outlet />
+      <div style={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{ width: '100%' }}>
+          <Outlet />
+        </div>
+      </div>
     </div>
   )
 }

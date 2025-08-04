@@ -47,6 +47,9 @@
     z-index: 2;
     user-select: none;
     transition: transform 0.2s ease;
+    background-color: rgba(110, 110, 110, 0.7);
+    padding: 0 5px 0 5px;
+    border-radius: 10px;
 }
 
 .star-icon:hover {

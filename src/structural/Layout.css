@@ -1,11 +1,12 @@
 .navbar-container {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     opacity: 0;
     animation: fadeIn 0.8s ease forwards;
+    padding-top: 5px;
 }
 
 .navbar {
