@@ -13,6 +13,7 @@ export default async function fetchLocation() {
         });
 
         console.log(position.coords.latitude, position.coords.longitude);
+        console.log(position)
         return {
             lat: position.coords.latitude,
             long: position.coords.longitude
@@ -26,6 +27,7 @@ export default async function fetchLocation() {
 
             const locRes = await fetch(`https://api.ipgeolocation.io/v2/ipgeo?apiKey=${IPKEY}&ip=${ip}`);
             const data = await locRes.json();
+            console.log(data);
             console.log(data.location.latitude, data.location.longitude);
 
             return { lat: data.location.latitude, long: data.location.longitude };

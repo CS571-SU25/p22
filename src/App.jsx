@@ -12,11 +12,14 @@ import { useEffect, useState } from 'react'
 import fetchWeather from './tools/fetchWeather'
 import SavedActivitiesContext from './contexts/SavedActivitiesContext'
 import useStorage from "./hooks/useStorage"
+import fetchGeocode from './tools/fetchGeocode'
 
 function App() {
   const [activityData, setActivityData] = useState([]);
   const [weatherData, setWeatherData] = useState({});
   const [savedActivities, setSavedActivities] = useStorage("saved-activities", []);
+  const [locationData, setLocationData] = useState({});
+  const [weatherUnits, setWeatherUnits] = useState({});
 
   useEffect(() => {
     const getData = async () => {
@@ -26,8 +29,11 @@ function App() {
     }
 
     const getWeather = async () => {
-      const weather = await fetchWeather();
-      setWeatherData(weather.current);
+      const data = await fetchWeather();
+      setWeatherData(data.weather.current);
+      setWeatherUnits(data.weather.current_units);
+      const locationData = await fetchGeocode(data.pos.lat, data.pos.long);
+      setLocationData(locationData);
     }
 
     getData();
@@ -39,7 +45,7 @@ function App() {
       <HashRouter>
         <Routes>
             <Route path='/' element={<Layout />}>
-              <Route index element={<HomePage weather={weatherData}/>} />
+              <Route index element={<HomePage weather={weatherData} loc={locationData} units={weatherUnits}/>} />
               <Route path="activity-menu" element={<ActivityMenu />} />
               <Route path="questionnaire" element={<Questionnaire />} />
               <Route path="recommendation" element={<Recommendation />} />
