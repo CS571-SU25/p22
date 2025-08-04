@@ -1,3 +1,4 @@
+
 // TODO: Build out activity information to be displayed for each activity
 
 export default function Activity(props) {

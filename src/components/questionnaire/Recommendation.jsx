@@ -1,82 +1,51 @@
-import { useNavigate } from "react-router";
-import { Container, Button, Card } from "react-bootstrap"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Container, Card } from "react-bootstrap";
 
+export default function Recommendation({ responses }) {
+  const [activities, setActivities] = useState([]);
+  const [filteredActivities, setFilteredActivities] = useState([]);
 
-export default function Recommendation({responses}) {
-    const activities = [
-        {
-          name: "Go for a hike",
-          traits: {
-            location: "Outside",
-            group: "With Friends",
-            season: "Summer",
-            rain: "No",
-          },
-        },
-        {
-          name: "Read a book",
-          traits: {
-            location: "Inside",
-            group: "Alone",
-          },
-        },
-        {
-          name: "Board game night",
-          traits: {
-            location: "Inside",
-            group: "With Friends",
-          },
-        },
-        {
-          name: "Visit a museum",
-          traits: {
-            location: "Inside",
-            group: "Alone",
-            rain: "Yes",
-          },
-        },
-      ];
-      const userTraits = {};
-      for (const res of responses) {
-        if (res.question.includes("inside or outside")) {
-          userTraits.location = res.answer;
-        }
-        if (res.question.includes("alone or with friends")) {
-          userTraits.group = res.answer;
-        }
-        if (res.question.includes("season")) {
-          userTraits.season = res.answer;
-        }
-        if (res.question.includes("raining")) {
-          userTraits.rain = res.answer;
-        }
-      }
-    
-      // Score each activity based on how many traits match
-      const scoredActivities = activities.map((activity) => {
-        let score = 0;
-        for (const trait in activity.traits) {
-          if (activity.traits[trait] === userTraits[trait]) {
-            score++;
-          }
-        }
-        return { ...activity, score };
-      });
-    
-      // Sort by best match
-      const sortedActivities = scoredActivities.sort((a, b) => b.score - a.score);
-      const bestMatches = sortedActivities.filter((a) => a.score === sortedActivities[0].score);
-    
-      return (
-        <Container>
-            <h2 className="text-xl font-bold mb-2">We recommend:</h2>
-            <ul className="list-disc list-inside">
-                {bestMatches.map((activity) => (
-                    <ul key={activity.name}>{activity.name}</ul>
-                ))}
-            </ul>
-        </Container>
+  useEffect(() => {
+    // Fetch the JSON file from public folder
+    fetch("/p22/activities/activityData.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setActivities(data);
+        console.log("success");
+      })
+      .catch((err) => console.error("Error fetching activities:", err));
+  }, []);
+
+  useEffect(() => {
+    if (activities.length > 0 && responses.length > 0) {
+      // Extract keywords from responses
+      const userKeywords = responses.map((r) => r.answer.toLowerCase());
+
+      // Filter activities by matching keywords
+      const matched = activities.filter((activity) =>
+        activity.keywords.some((keyword) =>
+          userKeywords.includes(keyword.toLowerCase())
+        )
       );
-    
+
+      setFilteredActivities(matched);
+    }
+  }, [activities, responses]);
+
+  return (
+    <Container>
+      <h2>Recommendations</h2>
+      {filteredActivities.length > 0 ? (
+        filteredActivities.map((activity, index) => (
+          <Card key={index} className="mb-3">
+            <Card.Body>
+              <Card.Title>{activity.name}</Card.Title>
+            </Card.Body>
+          </Card>
+        ))
+      ) : (
+        <p>No matching activities found based on your answers.</p>
+      )}
+    </Container>
+  );
 }
