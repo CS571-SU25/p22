@@ -1,5 +1,3 @@
-const IPKEY = "a858d786813e46279445d41f5aad29d2";
-
 export default async function fetchLocation() {
     if (!navigator.geolocation) {
         console.log("Geolocation not supported");
@@ -23,7 +21,7 @@ export default async function fetchLocation() {
             const res = await fetch("https://api.ipify.org");
             const ip = await res.text();
 
-            const locRes = await fetch(`https://api.ipgeolocation.io/v2/ipgeo?apiKey=${IPKEY}&ip=${ip}`);
+            const locRes = await fetch(`https://api.ipgeolocation.io/v2/ipgeo?apiKey=a858d786813e46279445d41f5aad29d2&ip=${ip}`);
             const data = await locRes.json();
             console.log(data.location.latitude, data.location.longitude);
 
