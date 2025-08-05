@@ -1,3 +1,5 @@
+// TODO: check and see if there are any issues with fetching (with regards to safety)
+
 export default async function fetchLocation() {
     if (!navigator.geolocation) {
         console.log("Geolocation not supported");
