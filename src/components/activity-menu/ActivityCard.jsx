@@ -22,8 +22,8 @@ export default function ActivityCard({ name, img, desc, delay, saveActivity, uns
         setSaved(!saved);
     };
 
-    return <Card className={`activity-card ${show ? "show" : ""}`} style={{width: "300px", position: "relative"}} onClick={() => nav(`/${name}`)}>
-            <div style={{backgroundImage: `url(/p22/activities/activityImages/${img.src})`}}>
+    return <Card className={`activity-card ${show ? "show" : ""}`} style={{width: "300px", position: "relative", borderRadius: "1rem"}} onClick={() => nav(`/${name}`)}>
+            <div style={{backgroundImage: `url(/p22/activities/activityImages/${img.src})`, borderRadius: "1rem 1rem 0.5rem 0.5rem"}}>
                 <h2>{name}</h2>
                 <div className="star-icon" onClick={toggleSave}>
                     {saved ? '★' : '☆'}

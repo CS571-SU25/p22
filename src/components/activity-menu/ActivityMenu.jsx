@@ -1,7 +1,8 @@
-import { Row, Container, Col, Spinner } from "react-bootstrap"
+import { Row, Container, Col } from "react-bootstrap"
 import ActivityCard from "./ActivityCard";
 import { useContext, useEffect, useState } from "react";
 import SavedActivitiesContext from "../../contexts/SavedActivitiesContext";
+import "./ActivityMenu.css"
 
 export default function ActivityMenu() {
     const [activityData, setActivityData] = useState([]);
@@ -45,9 +46,8 @@ export default function ActivityMenu() {
 
     // TODO: Make UI look a little cleaner (e.g. border, background, margin)
     return <Container fluid className="mt-4 px-4">
-        <Row className="d-flex justify-content-center" style={{marginTop: "4rem"}}>
+        <Row className="d-flex justify-content-center menu" style={{marginTop: "4rem"}}>
             {
-                activityData.length === 0 ? <Spinner size="lg" variant="primary"/> :
                 handleActivityMap()
             }
         </Row>

@@ -1,0 +1,47 @@
+.activity-container {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 600px;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.activity-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.activity-text {
+  padding: 1.5rem;
+}
+
+.activity-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.activity-desc {
+  font-size: 1rem;
+  color: #444;
+}
+
+.activity-keywords {
+  margin-top: 1rem;
+}
+
+.activity-keyword {
+  display: inline-block;
+  background-color: #eef6ff;
+  color: #0077cc;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}

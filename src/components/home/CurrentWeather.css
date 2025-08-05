@@ -18,14 +18,15 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 1.5rem 2rem;
-  border-radius: 0.5rem;
+  border-radius: 2rem;
   text-align: center;
   max-width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .weather-cards-section {
   width: 100vw; /* Full width of the screen */
   margin-left: calc(-50vw + 50%); /* Counteract root centering */
-  background: linear-gradient(to bottom right, #e6f0ff, #ffffff);
+  background: #cbd6e0;
   padding: 2rem 1rem;
 }
