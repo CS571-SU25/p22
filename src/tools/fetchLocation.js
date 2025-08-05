@@ -17,18 +17,18 @@ export default async function fetchLocation() {
         };
     } catch (err) {
         // Geolocation failed — fallback to IP-based location
-        try {
-            const res = await fetch("https://api.ipify.org");
-            const ip = await res.text();
+        // try {
+        //     const res = await fetch("https://api.ipify.org");
+        //     const ip = await res.text();
 
-            const locRes = await fetch(`https://ipwho.is/${ip}`);
-            const data = await locRes.json();
-            console.log(data.latitude, data.longitude);
+        //     const locRes = await fetch(`https://ipwho.is/${ip}`);
+        //     const data = await locRes.json();
+        //     console.log(data.latitude, data.longitude);
 
-            return { lat: data.latitude, long: data.longitude };
-        } catch (fallbackErr) {
-            console.error("Failed to fetch IP-based location:", fallbackErr);
-            return null;
-        }
+        //     return { lat: data.latitude, long: data.longitude };
+        // } catch (fallbackErr) {
+        //     console.error("Failed to fetch IP-based location:", fallbackErr);
+        //     return null;
+        // }
     }
 }
