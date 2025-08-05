@@ -9,7 +9,7 @@ import Layout from './structural/Layout'
 import PageDNE from './components/page-not-found/PageDNE'
 import Activity from './components/activity-page/Activity'
 import { useEffect, useState } from 'react'
-import fetchWeather from './tools/fetchWeather'
+// import fetchWeather from './tools/fetchWeather'
 import SavedActivitiesContext from './contexts/SavedActivitiesContext'
 import useStorage from "./hooks/useStorage"
 // import fetchGeocode from './tools/fetchGeocode'
@@ -28,16 +28,16 @@ function App() {
       setActivityData(data);
     }
 
-    const getWeather = async () => {
-      const data = await fetchWeather();
-      setWeatherData(data.weather.current);
-      setWeatherUnits(data.weather.current_units);
-      // const locationData = await fetchGeocode(data.pos.lat, data.pos.long);
-      setLocationData(locationData);
-    }
+    // const getWeather = async () => {
+    //   const data = await fetchWeather();
+    //   setWeatherData(data.weather.current);
+    //   setWeatherUnits(data.weather.current_units);
+    //   // const locationData = await fetchGeocode(data.pos.lat, data.pos.long);
+    //   setLocationData(locationData);
+    // }
 
     getData();
-    getWeather();
+    // getWeather();
   }, [])
     
   return (
