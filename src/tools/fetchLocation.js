@@ -21,7 +21,7 @@ export default async function fetchLocation() {
             const res = await fetch("https://api.ipify.org");
             const ip = await res.text();
 
-            const locRes = await fetch(`http://ipwho.is/${ip}`);
+            const locRes = await fetch(`https://ipwho.is/${ip}`);
             const data = await locRes.json();
             console.log(data.latitude, data.longitude);
 
