@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react'
 import fetchWeather from './tools/fetchWeather'
 import SavedActivitiesContext from './contexts/SavedActivitiesContext'
 import useStorage from "./hooks/useStorage"
-// import fetchGeocode from './tools/fetchGeocode'
+import fetchGeocode from './tools/fetchGeocode'
 
 function App() {
   const [activityData, setActivityData] = useState([]);
@@ -32,7 +32,7 @@ function App() {
       const data = await fetchWeather();
       setWeatherData(data.weather.current);
       setWeatherUnits(data.weather.current_units);
-      // const locationData = await fetchGeocode(data.pos.lat, data.pos.long);
+      const locationData = await fetchGeocode(data.pos.lat, data.pos.long);
       setLocationData(locationData);
     }
 
