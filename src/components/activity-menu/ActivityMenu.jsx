@@ -45,7 +45,7 @@ export default function ActivityMenu() {
 
     // TODO: Make UI look a little cleaner (e.g. border, background, margin)
     return <Container fluid className="mt-4 px-4">
-        <Row className="d-flex justify-content-center">
+        <Row className="d-flex justify-content-center" style={{marginTop: "4rem"}}>
             {
                 activityData.length === 0 ? <Spinner size="lg" variant="primary"/> :
                 handleActivityMap()
